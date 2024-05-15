@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  namespace: media # Or your desired namespace
+spec:
+  replicas: 1 
+  selector:
+	matchLabels:
+	  app: radarr
+  template:
+	metadata:
+	  labels:
+		app: radarr
+	spec:
+	  containers:
+		- name: radarr
+		  image: ghcr.io/hotio/radarr:latest
+		  ports:
+			- containerPort: 7878
+		  env:
+			- name: PUID
+			  value: "1001"
+			- name: PGID
+			  value: "1001"
+			- name: TZ
+			  value: "America/New_York"
+		  volumeMounts:
+			- name: config
+			  mountPath: /config
+			- name: data
+			  mountPath: /data
+			- name: localtime
+			  mountPath: /etc/localtime
+			  readOnly: true
+	  volumes:
+		- name: config
+		  persistentVolumeClaim:
+			claimName: radarr-config # Create a PVC for configuration
+		- name: data
+		  nfs:
+			server: 192.168.0.20
+			path: /mnt/Big_Pool/plexlib
+			- name: localtime
+		  hostPath:
+			path: /etc/localtime
+			type: File
