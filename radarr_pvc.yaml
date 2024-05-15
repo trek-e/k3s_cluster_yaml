@@ -4,8 +4,8 @@ metadata:
   name: my-pvc  # Choose a meaningful name for your PVC
 spec:
   accessModes:
-	- ReadWriteOnce  # Access mode (single node can read/write)
+    - ReadWriteOnce  # Access mode (single node can read/write)
   resources:
-	requests:
-	  storage: 1Gi  # Storage capacity you need
+    requests:
+      storage: 1Gi  # Storage capacity you need
   storageClassName: standard  # Replace with your storage class (if needed)
