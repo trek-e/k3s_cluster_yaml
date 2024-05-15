@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: radarr
-  namespace: media # Or your desired namespace
+  namespace: default # Or your desired namespace
 spec:
   replicas: 1 
   selector:
