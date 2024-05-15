@@ -6,8 +6,8 @@ metadata:
 spec:
   replicas: 1 
   selector:
-	matchLabels:
-	  app: radarr
+	  matchLabels:
+	  	app: radarr
   template:
 	metadata:
 	  labels:
