@@ -11,3 +11,4 @@ spec:
       port: 7878
       targetPort: 7878
   type: LoadBalancer # Deploy as a standalone IP Addr on network.
+  loadBlancerIP:  192.168.0.27
