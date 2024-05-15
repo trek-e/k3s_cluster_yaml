@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: radarr
   namespace: default # Or your desired namespace
+  annotations:
+    metalib.universe.tf/loadBalancerIPs: 192.168.0.30
 spec:
   selector:
       app: radarr
@@ -11,5 +13,5 @@ spec:
       port: 80
       targetPort: 7878
   type: LoadBalancer # Deploy as a standalone IP Addr on network.
-  loadBalancerIP:  192.168.0.27
+  
   
