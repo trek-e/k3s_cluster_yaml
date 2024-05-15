@@ -36,15 +36,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-          metadata:
-            name: radarr-pvc
-          spec:
-            accessModes:
-              - ReadWriteOnce #  Access Mode (Single Node can Read/write)
-            resources:
-              requests:
-                storage: 10Gi
-            storageClassName: longhorn
+            claimName: radarr-pvc
         - name: data
           nfs:
             server: 192.168.0.20
