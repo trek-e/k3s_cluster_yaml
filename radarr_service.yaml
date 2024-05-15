@@ -5,9 +5,9 @@ metadata:
   namespace: media # Or your desired namespace
 spec:
   selector:
-	app: radarr
+      app: radarr
   ports:
-	- name: http
-	  port: 7878
-	  targetPort: 7878
+    - name: http
+      port: 7878
+      targetPort: 7878
   type: LoadBalancer # Deploy as a standalone IP Addr on network.
