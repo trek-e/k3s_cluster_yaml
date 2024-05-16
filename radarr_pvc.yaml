@@ -7,5 +7,5 @@ spec:
     - ReadWriteOnce  # Access mode (single node can read/write)
   resources:
     requests:
-      storage: 1Gi  # Storage capacity you need
+      storage: 10Gi  # Storage capacity you need
   storageClassName: longhorn  # Replace with your storage class (if needed)
